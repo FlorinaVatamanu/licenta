@@ -1,0 +1,49 @@
+button {
+    margin-right: 5px;
+    background-color:#7CFFCB;
+}
+
+.bg-image {
+  background-image: url('~src/assets/images/image.jpg');
+}
+
+.top-margin {
+  padding-top: 10rem;
+}
+
+.card {
+  background-color: white;
+  width: 25rem;
+  height: 26rem;
+  border-radius: 1.5rem;
+}
+
+.card-one {
+  background-image: url('~src/assets/images/creveti.jpg');
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.card-two {
+  background-image: url('~src/assets/images/oats.jpg');
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.card-three {
+  background-image: url('~src/assets/images/smoothie.jpg');
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.card-four {
+  background-image: url('~src/assets/images/dinner.png');
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.label {
+   margin-top: 18rem;
+}
+.cards__item__text {
+  //color: #252e48;
+  font-size: 22px;
+  line-height: 24px;
+  padding-top: 2rem;
+}

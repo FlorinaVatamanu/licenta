@@ -1,0 +1,24 @@
+@use 'variables';
+
+html,
+body {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 1rem;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: variables.$bgWhite;
+  background-size: 56.25rem;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  width: 100vw;
+  height: 100vh;
+  color: variables.$textWhite;
+}
+
+p, h4, h2 {
+  margin: 0;
+}

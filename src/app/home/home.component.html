@@ -1,0 +1,110 @@
+<div class="flex align-items-center bg-white h-5rem">
+  <div class="flex justify-content-between w-full">
+    <section class="flex align-items-center pl-5">
+      <img src="assets/images/logo4.png" class="w-4rem" alt="no-picture"/>
+      <span class="text-gray-500 text-4xl font-italic">FitBody   </span>
+    </section>
+
+    <section>
+      <button mat-raised-button routerLink="/login">
+        <mat-icon>login</mat-icon>
+        <span>Login</span>
+      </button>
+      <button mat-raised-button (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Log out</span>
+      </button>
+      <button mat-raised-button routerLink="/signup">
+        <mat-icon>person_add</mat-icon>
+        <span>Sign up</span>
+      </button>
+      <button mat-raised-button routerLink="/forgot-pass">
+        <mat-icon>help_outline</mat-icon>
+        <span>Forgot password</span>
+      </button>
+      <button mat-raised-button routerLink="/verify-email">
+        <mat-icon>help_outline</mat-icon>
+        <span>Resend email verification</span>
+      </button>
+      <button mat-raised-button routerLink="/dashboard">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </button>
+      <button mat-raised-button routerLink="/nutritionist">
+        <mat-icon>admin_panel_settings</mat-icon>
+        <span>Admin Dashboard</span>
+      </button>
+    </section>
+  </div>
+</div>
+<br>
+<mat-card *ngIf="(afAuth.user | async)">
+  <mat-icon>check_circle</mat-icon>
+  <span>User is logged in</span>
+</mat-card>
+<mat-card *ngIf="!(afAuth.user | async)">
+  <mat-icon>do_not_disturb</mat-icon>
+  <span>User is not logged in</span>
+</mat-card>
+
+<div class="h-screen w-full">
+  <div class="bg-image bg-center bg-no-repeat bg-cover h-full">
+    <div class="flex flex-column w-full align-items-center h-full text-white font-italic top-margin">
+      <span class="pb-8 text-8xl">What's in your food?</span>
+      <span class="text-5xl">Learn about calorie count, nutrition information and serving size.</span>
+      <button pButton type="button" label="Start Your Journey Today" routerLink="/login"
+              class="p-button-secondary w-17rem mt-8 text-white font-italic text-xl"></button>
+    </div>
+  </div>
+  <h2 class="text-center py-8 text-5xl font-italic font-light text-black-alpha-60">Get nutritionist-approved
+    recipes!</h2>
+  <div class="bg-white h-screen flex justify-content-center">
+    <div class="flex flex-column">
+      <div class="flex">
+        <div class="card shadow-5 mr-5">
+          <div class="card-one bg-center bg-no-repeat bg-cover h-20rem">
+            <button pButton type="button" label="Love Salad"
+                    class="label p-button-secondary w-10rem text-white font-italic text-xl"></button>
+            <div class="cards__item__text flex justify-content-center font-italic font-light text-black-alpha-80">
+              Discover a world of salads!
+            </div>
+          </div>
+
+        </div>
+        <div class="card shadow-5">
+          <div class="card-two bg-center bg-no-repeat bg-cover h-20rem">
+            <button pButton type="button" label="Breakfast"
+                    class="label p-button-secondary w-10rem text-white font-italic text-xl"></button>
+            <div class="cards__item__text flex justify-content-center font-italic font-light text-black-alpha-80">
+              Healthy Meal Prep Breakfast Recipes!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex pt-5">
+        <div class="card shadow-5 mr-5">
+          <div class="card-three bg-center bg-no-repeat bg-cover h-20rem">
+            <button pButton type="button" label="Fresh Smoothies"
+                    class="label p-button-secondary w-12rem text-white font-italic text-xl"></button>
+            <div class="cards__item__text flex justify-content-center font-italic font-light text-black-alpha-80">Enjoy
+              your favorite fruits and veggies!
+            </div>
+          </div>
+        </div>
+        <div class="card shadow-5">
+          <div class="card-four bg-center bg-no-repeat bg-cover h-20rem">
+            <button pButton type="button" label="Meat Lovers"
+                    class="label p-button-secondary w-12rem text-white font-italic text-xl"></button>
+            <div class="cards__item__text flex justify-content-center font-italic font-light text-black-alpha-80">
+              Healthy High Protein Meals!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/><br/><br/><br/><br/><br/><br/>
+  <app-footer></app-footer>
+</div>
+
+

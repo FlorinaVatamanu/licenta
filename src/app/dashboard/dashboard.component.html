@@ -1,0 +1,19 @@
+<body class="dashboard-body">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<br><br>
+<button mat-raised-button routerLink="/home">
+  <mat-icon>home</mat-icon>
+  <span>Home</span>
+</button>
+
+<mat-list *ngIf="(user | async)">
+  <mat-list-item>Role: {{ (user | async)?.role }}</mat-list-item>
+  <mat-list-item>Fullname: {{ (user | async)?.fullname }}</mat-list-item>
+  <mat-list-item>Fullname (lower): {{ (user | async)?.fullname_lower }}</mat-list-item>
+  <mat-list-item>Email: {{ (user | async)?.email }}</mat-list-item>
+  <mat-list-item>Email (lower): {{ (user | async)?.email_lower }}</mat-list-item>
+  <mat-list-item>Password: {{ (user | async)?.password }}</mat-list-item>
+</mat-list>
+</body>
