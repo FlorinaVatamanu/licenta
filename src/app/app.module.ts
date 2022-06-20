@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { NutritionistDashboardComponent } from './nutritionist-dashboard/nutritionist-dashboard.component';
+import { RestComponent } from './rest/rest.component';
 
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -32,7 +33,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatListModule } from '@angular/material/list';
-
+import { FoodComponent } from './food/food.component';
+import {PaginatorModule} from 'primeng/paginator';
+import { BmrComponent } from './bmr/bmr.component';
 
 @NgModule({
     declarations: [
@@ -47,6 +50,9 @@ import { MatListModule } from '@angular/material/list';
         ForgotPassComponent,
         VerifyEmailComponent,
         NutritionistDashboardComponent,
+        RestComponent,
+        FoodComponent,
+        BmrComponent
     ],
     imports: [
         BrowserModule,
@@ -65,6 +71,7 @@ import { MatListModule } from '@angular/material/list';
         MatListModule,
         ButtonModule,
         CardModule,
+        PaginatorModule,
 
         FormsModule,
         ReactiveFormsModule,

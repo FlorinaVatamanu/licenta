@@ -9,6 +9,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { NutritionistDashboardComponent } from './nutritionist-dashboard/nutritionist-dashboard.component';
+import { RestComponent } from './rest/rest.component';
+import { FoodComponent } from './food/food.component';
+import { BmrComponent } from './bmr/bmr.component';
 
 import { AuthGuard } from './services/auth.guard';
 
@@ -18,9 +21,12 @@ const routes: Routes = [
     { path: 'home-page', component: HomePageComponent },
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
+    { path: 'rest', component: RestComponent },
     { path: 'forgot-pass', component: ForgotPassComponent },
     { path: 'verify-email', component: VerifyEmailComponent },
+    { path: 'food', component: FoodComponent },
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+    { path: 'bmr', component: BmrComponent, canActivate: [AuthGuard] },
     { path: 'nutritionist', component: NutritionistDashboardComponent, canActivate: [AuthGuard] },
     { path: '**', component: HomeComponent },                       // catch-all in case no other path matched
 ];
