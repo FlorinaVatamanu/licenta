@@ -1,19 +1,143 @@
-<body class="dashboard-body">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<div class="flex align-items-center bg-white h-6rem">
 
-<br><br>
-<button mat-raised-button routerLink="/home">
-  <mat-icon>home</mat-icon>
-  <span>Home</span>
-</button>
+  <section class="flex align-items-center pl-5">
+    <img src="assets/images/logo4.png" class="w-4rem" alt="no-picture"/>
+    <span class="text-black-500 text-4xl font-italic">Client Dashboard  </span>
+  </section>
 
-<mat-list *ngIf="(user | async)">
-  <mat-list-item>Role: {{ (user | async)?.role }}</mat-list-item>
-  <mat-list-item>Fullname: {{ (user | async)?.fullname }}</mat-list-item>
-  <mat-list-item>Fullname (lower): {{ (user | async)?.fullname_lower }}</mat-list-item>
-  <mat-list-item>Email: {{ (user | async)?.email }}</mat-list-item>
-  <mat-list-item>Email (lower): {{ (user | async)?.email_lower }}</mat-list-item>
-  <mat-list-item>Password: {{ (user | async)?.password }}</mat-list-item>
-</mat-list>
-</body>
+  <section class="absolute top-0 right-0 mt-3 justify-content-center">
+    <button style="margin:5px;" mat-raised-button routerLink="/bmr">
+      <span class="material-icons">fitness_center</span>
+      <span>BMR Calculator</span>
+    </button>
+    <button style="margin:5px;" mat-raised-button routerLink="/home">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+  </section>
+
+</div>
+
+
+<!--<div class="table-title flex">
+  <h2>Manage <b>Foods</b></h2>
+  <button1 mat-raised-button routerLink="/home">
+    <mat-icon>home</mat-icon>
+    <span>Home</span>
+  </button1>
+</div>-->
+
+<div class="flex">
+  <div class="bg-image">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mt-5">
+          <div class="card border-0 shadow p-3">
+            <div class="form-floating mb-3 text-center">
+              <b><span class="text-black-500 text-3xl font-italic">Add Food</span></b>
+            </div>
+
+            <div class="form-floating mb-5">
+              <label for="foodName"><span class="text-black-500 text-2xl font-italic">Food name</span></label><br>
+              <input type="text" class="form-control" id="foodName" name="foodName" [(ngModel)]="food_name">
+            </div>
+            <div class="form-floating mb-5">
+              <label for="calories"><span class="text-black-500 text-2xl font-italic">Calories</span></label><br>
+              <input type="text" class="form-control" id="calories" name="calories" [(ngModel)]="calories">
+
+            </div>
+            <div class="form-floating mb-5">
+              <label for="cantity"><span class="text-black-500 text-2xl font-italic">Cantity</span></label><br>
+              <input type="text" class="form-control" id="cantity" name="cantity" [(ngModel)]="cantity">
+
+            </div>
+            <div class="form-floating mb-5">
+              <label for="units"><span class="text-black-500 text-2xl font-italic">Units</span></label><br>
+              <input type="text" class="form-control" id="units" name="units" [(ngModel)]="units">
+
+            </div>
+            <div class="form-floating mb-5">
+              <label for="carbs"><span class="text-black-500 text-2xl font-italic">Carbs</span></label><br>
+              <input type="text" class="form-control" id="carbs" name="carbs" [(ngModel)]="carbs">
+            </div>
+            <div class="form-floating mb-5">
+              <label for="fat"><span class="text-black-500 text-2xl font-italic">Fat</span></label><br>
+              <input type="text" class="form-control" id="fat" name="fat" [(ngModel)]="fat">
+
+            </div>
+            <div class="form-floating mb-5">
+              <label for="fiber"><span class="text-black-500 text-2xl font-italic">Fiber</span></label><br>
+              <input type="text" class="form-control" id="fiber" name="fiber" [(ngModel)]="fiber">
+
+            </div>
+            <div class="form-floating mb-5">
+              <label for="protein"><span class="text-black-500 text-2xl font-italic">Protein</span></label><br>
+              <input type="text" class="form-control" id="protein" name="protein" [(ngModel)]="protein">
+
+            </div>
+            <div class="form-floating mb-5">
+              <label for="sugar"><span class="text-black-500 text-2xl font-italic">Sugar</span></label><br>
+              <input type="text" class="form-control" id="sugar" name="sugar" [(ngModel)]="sugar">
+
+            </div>
+            <br><br>
+            <button mat-raised-button (click)="addFood()">
+              <span class="material-icons">restaurant</span>
+              <span>Add Food</span>
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container2">
+    <div class="row">
+      <div class="col-md-8 mt-2">
+        <div class="card p-3 shadow">
+          <div class="card-body">
+            <table class="table table-striped table-hover">
+              <thead>
+              <tr>
+                <th><span class="text-black-400 text-1.7xl font-italic">Food name</span></th>
+                <th><span class="text-black-400 text-1.7xl font-italic">Calories</span></th>
+                <th><span class="text-black-400 text-1.7xl font-italic">Cantity</span></th>
+                <th><span class="text-black-400 text-1.7xl font-italic">Units</span></th>
+                <th><span class="text-black-400 text-1.7xl font-italic">Carbs</span></th>
+                <th><span class="text-black-400 text-1.7xl font-italic">Fat</span></th>
+                <th><span class="text-black-400 text-1.7xl font-italic">Fiber</span></th>
+                <th><span class="text-black-400 text-1.7xl font-italic">Protein</span></th>
+                <th><span class="text-black-400 text-1.7xl font-italic">Sugar</span></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let food of foodsList">
+                <td><span class="text-black-400 text-1.7xl font-italic">{{food.food_name}}</span></td>
+                <td><span class="text-black-400 text-1.7xl font-italic">{{food.calories}}</span></td>
+                <td><span class="text-black-400 text-1.7xl font-italic">{{food.cantity}}</span></td>
+                <td><span class="text-black-400 text-1.7xl font-italic">{{food.units}}</span></td>
+                <td><span class="text-black-400 text-1.7xl font-italic">{{food.carbs}}</span></td>
+                <td><span class="text-black-400 text-1.7xl font-italic">{{food.fat}}</span></td>
+                <td><span class="text-black-400 text-1.7xl font-italic">{{food.fiber}}</span></td>
+                <td><span class="text-black-400 text-1.7xl font-italic">{{food.protein}}</span></td>
+                <td><span class="text-black-400 text-1.7xl font-italic">{{food.sugar}}</span></td>
+                <td>
+                  <button (click)="deleteFood(food)"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                  </button>
+                </td>
+                <td>
+                  <button (click)="updateFood(food)"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<br><br><br>
+<app-footer></app-footer>
