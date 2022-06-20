@@ -1,0 +1,163 @@
+<div class="flex align-items-center bg-white h-6rem">
+
+  <section class="flex align-items-center pl-5">
+    <img src="assets/images/logo4.png" class="w-4rem" alt="no-picture"/>
+    <span class="text-black-500 text-4xl font-italic">Client Dashboard  </span>
+  </section>
+
+  <section class="absolute top-0 right-0 mt-3 justify-content-center">
+    <button style="margin:5px;" mat-raised-button routerLink="/dashboard">
+      <span class="material-icons">reply</span>
+      <span>Back</span>
+    </button>
+  </section>
+</div>
+
+<div class="container">
+  <div class="bg-image">
+    <div class="row">
+      <div class="col-md-4 mt-5">
+        <div class="card border-0 shadow p-3">
+          <div class="form-floating mb-3 text-center">
+            <b><span class="text-black-500 text-3xl font-italic">Add Food</span></b>
+          </div>
+
+          <div class="form-floating mb-5">
+            <label for="foodName"><span class="text-black-500 text-2xl font-italic">Food name</span></label><br>
+            <input type="text" class="form-control" id="foodName" name="foodName">
+          </div>
+          <div class="form-floating mb-5">
+            <label for="calories"><span class="text-black-500 text-2xl font-italic">Calories</span></label><br>
+            <input type="text" class="form-control" id="calories" name="calories">
+
+          </div>
+          <div class="form-floating mb-5">
+            <label for="cantity"><span class="text-black-500 text-2xl font-italic">Cantity</span></label><br>
+            <input type="text" class="form-control" id="cantity" name="cantity">
+
+          </div>
+          <div class="form-floating mb-5">
+            <label for="units"><span class="text-black-500 text-2xl font-italic">Units</span></label><br>
+            <input type="text" class="form-control" id="units" name="units">
+
+          </div>
+          <div class="form-floating mb-5">
+            <label for="carbs"><span class="text-black-500 text-2xl font-italic">Carbs</span></label><br>
+            <input type="text" class="form-control" id="carbs" name="carbs">
+          </div>
+          <div class="form-floating mb-5">
+            <label for="fat"><span class="text-black-500 text-2xl font-italic">Fat</span></label><br>
+            <input type="text" class="form-control" id="fat" name="fat">
+
+          </div>
+          <div class="form-floating mb-5">
+            <label for="fiber"><span class="text-black-500 text-2xl font-italic">Fiber</span></label><br>
+            <input type="text" class="form-control" id="fiber" name="fiber">
+
+          </div>
+          <div class="form-floating mb-5">
+            <label for="protein"><span class="text-black-500 text-2xl font-italic">Protein</span></label><br>
+            <input type="text" class="form-control" id="protein" name="protein">
+
+          </div>
+          <div class="form-floating mb-5">
+            <label for="sugar"><span class="text-black-500 text-2xl font-italic">Sugar</span></label><br>
+            <input type="text" class="form-control" id="sugar" name="sugar">
+
+          </div>
+          <br><br>
+          <button mat-raised-button>
+            <span class="material-icons">restaurant</span>
+            <span>Add Food</span>
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="bg-image">
+    <div class="form-floating mb-1 text-center">
+      <br>
+      <b><span class="text-black-500 text-3xl font-italic">BMR & DAILY CALORIE CALCULATOR</span></b><br>
+    </div>
+
+    <form>
+      <fieldset>
+
+        <legend><span class="text-black-500 text-2xl font-italic">Select Gender</span></legend>
+
+        <div class="form__radios">
+          <div class="form__radio">
+            <label for="female"><span class="text-black-500 text-2xl font-italic">Female</span></label>
+            <input checked id="female" name="check1" type="radio" checked="true"/>
+          </div>
+
+          <div class="form__radio">
+            <label for="male"><span class="text-black-500 text-2xl font-italic">Male</span></label>
+            <input id="male" name="check1" type="radio"/>
+          </div>
+        </div>
+      </fieldset>
+      <br>
+      <fieldset>
+        <legend><span class="text-black-500 text-2xl font-italic">Weight in kg</span></legend>
+        <div class="input-group"><input type="text" name="WEIGHT" placeholder="60 kg"></div>
+      </fieldset>
+      <br>
+      <fieldset>
+        <legend><span class="text-black-500 text-2xl font-italic">Height in cm</span></legend>
+        <div class="input-group"><input type="text" name="HEIGHT" placeholder="170 cm"></div>
+      </fieldset>
+      <br>
+      <fieldset>
+        <legend><span class="text-black-500 text-2xl font-italic">Age in years</span></legend>
+        <div class="input-group"><input type="text" name="age" placeholder="22y"></div>
+      </fieldset>
+      <br>
+
+      <div>
+        <!--<button class="button button--full" type="submit">Calculate BMR</button>-->
+        <button mat-raised-button>
+          <span class="material-icons">restaurant</span>
+          <span>Calculate BMR</span>
+        </button>
+      </div>
+      <br>
+      <fieldset>
+        <legend><span class="text-black-500 text-2xl font-italic">Workout in a Week</span></legend>
+
+        <select placeholder="Select activity level" name="subject" id="subject_input" required>
+          <option disabled hidden selected>Select activity level</option>
+          <option>
+            Sedentary (Very little or no exercise)
+          </option>
+          <option>
+            Lightly Active (Light exercise 1 to 3 days/week)
+          </option>
+          <option>
+            Moderately Active (Moderate exercise 3 to 5 days/week)
+          </option>
+          <option>
+            Very Active (Heavy exercise 6 to 7 days/week)
+          </option>
+          <option>
+            Extremely Active (Very intense)
+          </option>
+        </select>
+
+      </fieldset>
+      <br>
+
+      <div>
+        <!--<button class="button button--full" type="submit">Calculate Calories</button>-->
+        <button mat-raised-button>
+          <span class="material-icons">restaurant</span>
+          <span>Calculate Calories</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

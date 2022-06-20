@@ -1,0 +1,14 @@
+.container {
+  border-radius: 3em;
+  block-size: 700px;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.0625);
+  inline-size: 700px;
+  overflow: auto;
+  padding: 2em;
+  margin-left: 10px;
+  margin-right: auto;
+}
+
+.bg-image {
+  background-image: url('~src/assets/images/cantar.jpg');
+}
