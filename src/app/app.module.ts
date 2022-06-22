@@ -36,6 +36,7 @@ import { MatListModule } from '@angular/material/list';
 import { FoodComponent } from './food/food.component';
 import {PaginatorModule} from 'primeng/paginator';
 import { BmrComponent } from './bmr/bmr.component';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
     declarations: [
@@ -72,6 +73,7 @@ import { BmrComponent } from './bmr/bmr.component';
         ButtonModule,
         CardModule,
         PaginatorModule,
+        ChartModule,
 
         FormsModule,
         ReactiveFormsModule,
