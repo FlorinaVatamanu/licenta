@@ -139,5 +139,151 @@
 
   </div>
 </div>
+
+
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <h2>Search <b>Food</b></h2>
+        <div class="margine">
+          <input class="form-control" type="text" name="food_name" [(ngModel)]="food_name" (ngModelChange)="Search()"
+                 placeholder="Search for food name">
+        </div>
+      </div>
+      <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+          <th><span class="text-black-400 text-1.7xl font-italic">Food name</span></th>
+          <th (click)="sort('calories')"><span class="text-black-400 text-1.7xl font-italic"><span
+            class="material-icons md-18">sort</span>Calories&nbsp;</span></th>
+          <th><span class="text-black-400 text-1.7xl font-italic">Cantity</span></th>
+          <th><span class="text-black-400 text-1.7xl font-italic">Units</span></th>
+          <th (click)="sort('carbs')"><span class="text-black-400 text-1.7xl font-italic"><span
+            class="material-icons md-18">sort</span>Carbs&nbsp;</span></th>
+          <th (click)="sort('fats')"><span class="text-black-400 text-1.7xl font-italic"><span
+            class="material-icons md-18">sort</span>Fat&nbsp;</span></th>
+          <th (click)="sort('fiber')"><span class="text-black-400 text-1.7xl font-italic"><span
+            class="material-icons md-18">sort</span>Fiber&nbsp;</span></th>
+          <th (click)="sort('protein')"><span class="text-black-400 text-1.7xl font-italic"><span
+            class="material-icons md-18">sort</span>Protein&nbsp;</span></th>
+          <th (click)="sort('sugar')"><span class="text-black-400 text-1.7xl font-italic"><span
+            class="material-icons md-18">sort</span>Sugar&nbsp;</span></th>
+          <th><span class="text-black-400 text-1.7xl font-italic">Number Of Servings</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let food of foodsList | orderBy: key: reverse | paginate: {itemsPerPage:5,currentPage:p};">
+          <td><span class="text-black-400 text-1.7xl font-italic">{{food.food_name}}</span></td>
+          <td><span class="text-black-400 text-1.7xl font-italic">{{food.calories}}</span></td>
+          <td><span class="text-black-400 text-1.7xl font-italic">{{food.cantity}}</span></td>
+          <td><span class="text-black-400 text-1.7xl font-italic">{{food.units}}</span></td>
+          <td><span class="text-black-400 text-1.7xl font-italic">{{food.carbs}}</span></td>
+          <td><span class="text-black-400 text-1.7xl font-italic">{{food.fat}}</span></td>
+          <td><span class="text-black-400 text-1.7xl font-italic">{{food.fiber}}</span></td>
+          <td><span class="text-black-400 text-1.7xl font-italic">{{food.protein}}</span></td>
+          <td><span class="text-black-400 text-1.7xl font-italic">{{food.sugar}}</span></td>
+          <td><input type="text" name="servings" placeholder="servings" [(ngModel)]="servings"></td>
+
+          <td>
+            <button (click)="addBreakfast(food)">
+              <span class="material-icons">free_breakfast</span><b><span class="text-black-400 text-0.3xl font-italic">Breakfast</span></b>
+            </button>
+          </td>
+          <td>
+            <button>
+              <span class="material-icons">brunch_dining</span><b><span class="text-black-400 text-0.3xl font-italic">Lunch</span></b>
+            </button>
+          </td>
+          <td>
+            <button>
+              <span class="material-icons">dinner_dining</span><b><span class="text-black-400 text-0.3xl font-italic">Dinner</span></b>
+            </button>
+          </td>
+          <td>
+            <button>
+              <span class="material-icons">bakery_dining</span><b><span class="text-black-400 text-0.3xl font-italic">Snacks</span></b>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </table>
+      <!-- <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator>-->
+    </div>
+  </div>
+</div>
+
+<div class="container-xl">
+  <div class="row">
+    <div class="col-md-8 mt-2">
+      <div class="card p-3 shadow">
+        <div class="card-body">
+          <div class="table-title">
+            <h2><span class="material-icons">notifications_active</span> Active <b>Client:</b> {{active_user}}</h2>
+            <br>
+            <h2><span class="material-icons">event_available</span> Daily <b>Tracker </b>
+              <input type="date"
+                     name="day"
+                     [(ngModel)]="day"
+                     min="2022-06-14"
+                     max="2030-12-31"></h2>
+          </div>
+
+          <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+              <th><span class="text-black-400 text-1.7xl font-italic">Day</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Food name</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Carbs</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Fat</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Fiber</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Protein</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Sugar</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Number Of Servings</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Units</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Calories</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let breakfast of breakfastList">
+              <td><span class="text-black-400 text-1.7xl font-italic">{{breakfast.day}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{breakfast.food_nameB}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{breakfast.carbsB}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{breakfast.fatB}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{breakfast.fiberB}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{breakfast.proteinB}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{breakfast.sugarB}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{breakfast.cantityB}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{breakfast.unitsB}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{breakfast.caloriesB}}</span></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+              <th colspan="1">Total Carbohydrates:</th>
+              <td><input type="submit" name="totalC" [(ngModel)]="totalC"></td>
+              <th colspan="1">Total Fats:</th>
+              <td><input type="submit" name="totalG" [(ngModel)]="totalG"></td>
+              <th colspan="1">Total Fibers:</th>
+              <td><input type="submit" name="totalF" [(ngModel)]="totalF"></td>
+              <th colspan="1">Total Proteins:</th>
+              <td><input type="submit" name="totalP" [(ngModel)]="totalP"></td>
+              <th colspan="1">Total Sugars:</th>
+              <td><input type="submit" name="totalS" [(ngModel)]="totalS"></td>
+              <th colspan="1">Total Breakfast Calories:</th>
+              <td><input type="submit" name="totalCalsB" [(ngModel)]="totalCalsB"></td>
+            </tr>
+            <button mat-raised-button (click)="resetTotals()">
+              <span class="material-icons">restaurant</span>
+              <span>Clear</span>
+            </button>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <br><br><br>
 <app-footer></app-footer>
