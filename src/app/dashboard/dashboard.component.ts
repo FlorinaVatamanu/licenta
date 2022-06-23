@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Food } from '../model/food';
 import { User } from '../model/user';
 import { Breakfast } from '../model/breakfast';
+import { Lunch } from '../model/lunch';
 import { AuthService } from '../services/auth.service';
 import { DataService } from '../services/data.service';
 import { first } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +18,7 @@ export class DashboardComponent implements OnInit {
 
   foodsList: Food[] = [];
   breakfastList: Breakfast[] = [];
+  lunchList: Lunch[] = [];
 
   p:number = 1;
   active_user: string = '';
@@ -85,6 +88,45 @@ export class DashboardComponent implements OnInit {
    totalSugarB: string = '';
    totalCalsBreakfast: string = '';
 
+    lunchObj: Lunch = {
+      idL: '',
+      emailL: '',
+      dayL: '',
+      food_nameL: '',
+      caloriesL: '',
+      cantityL: '',
+      unitsL: '',
+      carbsL: '',
+      fatL: '',
+      fiberL: '',
+      proteinL: '',
+      sugarL: '',
+      totalCarbsL: '',
+      totalFatsL: '',
+      totalProteinL: '',
+      totalFiberL: '',
+      totalSugarL: '',
+      totalCalsLunch: ''
+    };
+
+     idL: string = '';
+     emailL: string = '';
+     dayL: string = '';
+     food_nameL: string = '';
+     caloriesL: string = '';
+     cantityL: string = '';
+     unitsL: string = '';
+     carbsL: string = '';
+     fatL: string = '';
+     fiberL: string = '';
+     proteinL: string = '';
+     sugarL: string = '';
+     totalCarbsL: string = '';
+     totalFatsL: string = '';
+     totalProteinL: string = '';
+     totalFiberL: string = '';
+     totalSugarL: string = '';
+     totalCalsLunch: string = '';
 
 
   constructor(private auth: AuthService, private data: DataService, private afAuth: AngularFireAuth) { }
@@ -93,6 +135,7 @@ export class DashboardComponent implements OnInit {
     this.getAllFoods();
     this.showEmail();
     this.getAllBreakfasts();
+    this.getAllLunch();
   }
 
   // register() {
@@ -127,6 +170,22 @@ export class DashboardComponent implements OnInit {
 
     }, err => {
       alert('Error while fetching breakfast data.');
+    })
+
+  }
+
+  getAllLunch() {
+
+    this.data.getAllLunch().subscribe(res => {
+
+      this.lunchList = res.map((e: any) => {
+        const data = e.payload.doc.data();
+        data.id = e.payload.doc.id;
+        return data;
+      })
+
+    }, err => {
+      alert('Error while fetching lunch data.');
     })
 
   }
@@ -319,4 +378,95 @@ export class DashboardComponent implements OnInit {
       this.totalCalsB = 0;
   }
 
+  totalCalsL: number = 0;
+  caloriesPortionL: number = 0;
+  caloriesFinalL: number = 0;
+
+  totalLunchC: number = 0;
+  carbsFinalL: number = 0;
+
+  totalLunchP: number = 0;
+  proteinsFinalL: number = 0;
+
+  totalLunchG: number = 0;
+  fatsFinalL: number = 0;
+
+  totalLunchS: number = 0;
+  sugarsFinalL: number = 0;
+
+  totalLunchF: number = 0;
+  fibersFinalL: number = 0;
+
+  addLunch(food: Food) {
+
+    if (this.day == '') {
+      alert('Pick a date.');
+      return;
+    }else if (this.servings == ''){
+      alert('Write number of servings.');
+      return;
+    }else{
+          this.lunchObj.idL = '';
+          this.lunchObj.emailL = this.active_user;
+          this.lunchObj.dayL = this.day;
+          this.lunchObj.food_nameL = food.food_name;
+
+          this.caloriesPortionL = (Number(food.calories) * Number(this.servings))/100;
+          this.caloriesFinalL = Math.round((this.caloriesPortionL + Number.EPSILON) * 100) / 100;
+          this.lunchObj.caloriesL = this.caloriesFinalL.toString(10);
+
+          this.lunchObj.cantityL = this.servings;
+          this.lunchObj.unitsL = food.units;
+
+          this.carbsFinalL = (Number(food.carbs) * Number(this.servings))/100;
+          this.carbsFinalL = Math.round((this.carbsFinalL + Number.EPSILON) * 100) / 100;
+          this.lunchObj.carbsL = this.carbsFinalL.toString(10);
+
+
+          this.fatsFinalL = (Number(food.fat) * Number(this.servings))/100;
+          this.fatsFinalL = Math.round((this.fatsFinalL + Number.EPSILON) * 100) / 100;
+          this.lunchObj.fatL = this.fatsFinalL.toString(10);
+
+          this.fibersFinalL = (Number(food.fiber) * Number(this.servings))/100;
+          this.fibersFinalL = Math.round((this.fibersFinalL + Number.EPSILON) * 100) / 100;
+          this.lunchObj.fiberL = this.fibersFinalL.toString(10);
+
+          this.proteinsFinalL = (Number(food.protein) * Number(this.servings))/100;
+          this.proteinsFinalL = Math.round((this.proteinsFinalL + Number.EPSILON) * 100) / 100;
+          this.lunchObj.proteinL = this.proteinsFinalL.toString(10);
+
+          this.sugarsFinalL = (Number(food.sugar) * Number(this.servings))/100;
+          this.sugarsFinalL = Math.round((this.sugarsFinalL + Number.EPSILON) * 100) / 100;
+          this.lunchObj.sugarL = this.sugarsFinalL.toString(10);
+
+          this.totalLunchC  = this.totalLunchC + this.carbsFinalL;
+          this.lunchObj.totalCarbsL = this.totalLunchC.toString(10);
+
+          this.totalLunchP  = this.totalLunchP + this.proteinsFinalL;
+          this.lunchObj.totalProteinL = this.totalLunchP.toString(10);
+
+          this.totalLunchG  = this.totalLunchG + this.fatsFinalL;
+          this.lunchObj.totalFatsL = this.totalLunchG.toString(10);
+
+          this.totalLunchF  = this.totalLunchF + this.fibersFinalL;
+          this.lunchObj.totalFiberL = this.totalLunchF.toString(10);
+
+          this.totalLunchS = this.totalLunchS + this.sugarsFinalL;
+          this.lunchObj.totalSugarL = this.totalLunchS.toString(10);
+
+          this.totalCalsL = this.totalCalsL + this.caloriesFinalL;
+          this.lunchObj.totalCalsLunch = this.totalCalsL.toString(10);
+
+          this.data.addLunch(this.lunchObj);
+    }
+  }
+
+  resetTotalsLunch() {
+      this.totalLunchC = 0;
+      this.totalLunchP = 0;
+      this.totalLunchF = 0;
+      this.totalLunchG = 0;
+      this.totalLunchS = 0;
+      this.totalCalsL = 0;
+  }
 }

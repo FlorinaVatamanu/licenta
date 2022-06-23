@@ -191,7 +191,7 @@
             </button>
           </td>
           <td>
-            <button>
+            <button (click)="addLunch(food)">
               <span class="material-icons">brunch_dining</span><b><span class="text-black-400 text-0.3xl font-italic">Lunch</span></b>
             </button>
           </td>
@@ -229,6 +229,9 @@
                      min="2022-06-14"
                      max="2030-12-31"></h2>
           </div>
+          <div class="table-title">
+            <h2><b>Breakfast</b></h2>
+          </div>
 
           <table class="table table-striped table-hover">
             <thead>
@@ -261,7 +264,7 @@
             </tbody>
             <tfoot>
             <tr>
-              <th colspan="1">Total Carbohydrates:</th>
+              <th colspan="1">Breakfast Carbohydrates:</th>
               <td><input type="submit" name="totalC" [(ngModel)]="totalC"></td>
               <th colspan="1">Total Fats:</th>
               <td><input type="submit" name="totalG" [(ngModel)]="totalG"></td>
@@ -280,10 +283,74 @@
             </button>
             </tfoot>
           </table>
+
+          <div class="table-title">
+            <h2><b>Lunch</b></h2>
+          </div>
+          <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+              <th><span class="text-black-400 text-1.7xl font-italic">Day</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Food name</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Carbs</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Fat</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Fiber</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Protein</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Sugar</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Number Of Servings</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Units</span></th>
+              <th><span class="text-black-400 text-1.7xl font-italic">Calories</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let lunch of lunchList">
+              <td><span class="text-black-400 text-1.7xl font-italic">{{lunch.dayL}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{lunch.food_nameL}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{lunch.carbsL}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{lunch.fatL}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{lunch.fiberL}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{lunch.proteinL}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{lunch.sugarL}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{lunch.cantityL}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{lunch.unitsL}}</span></td>
+              <td><span class="text-black-400 text-1.7xl font-italic">{{lunch.caloriesL}}</span></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+              <th colspan="1">Lunch Carbohydrates:</th>
+              <td><input type="submit" name="totalLunchC" [(ngModel)]="totalLunchC"></td>
+              <th colspan="1">Total Lunch Fats:</th>
+              <td><input type="submit" name="totalLunchG" [(ngModel)]="totalLunchG"></td>
+              <th colspan="1">Total Lunch Fibers:</th>
+              <td><input type="submit" name="totalLunchF" [(ngModel)]="totalLunchF"></td>
+              <th colspan="1">Total Lunch Proteins:</th>
+              <td><input type="submit" name="totalLunchP" [(ngModel)]="totalLunchP"></td>
+              <th colspan="1">Total Lunch Sugars:</th>
+              <td><input type="submit" name="totalLunchS" [(ngModel)]="totalLunchS"></td>
+              <th colspan="1">Total Lunch Calories:</th>
+              <td><input type="submit" name="totalCalsL" [(ngModel)]="totalCalsL"></td>
+            </tr>
+            <button mat-raised-button (click)="resetTotalsLunch()">
+              <span class="material-icons">restaurant</span>
+              <span>Clear</span>
+            </button>
+            </tfoot>
+          </table>
+
+
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="table-title">
+  <h2><b>Dinner</b></h2>
+</div>
+<div class="table-title">
+  <h2><b>Snacks</b></h2>
+</div>
+
 <br><br><br>
 <app-footer></app-footer>
