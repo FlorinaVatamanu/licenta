@@ -1,5 +1,5 @@
 export interface Breakfast {
-        idB:string,
+        id:string,
         email:string,
         day:string,
         food_nameB:string,
