@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Food } from '../model/food';
+import { Breakfast } from '../model/breakfast';
+import { Lunch } from '../model/lunch';
+import { Dinner } from '../model/dinner';
+import { Snack } from '../model/snack';
 
 @Injectable({
   providedIn: 'root'
@@ -17,14 +21,66 @@ export class DataService {
     return this.afs.collection('/food').add(food);
   }
 
+  addBreakfast(breakfast : Breakfast) {
+     breakfast.id = this.afs.createId();
+     return this.afs.collection('/breakfast').add(breakfast);
+  }
+
+  addLunch(lunch : Lunch) {
+     lunch.id = this.afs.createId();
+     return this.afs.collection('/lunch').add(lunch);
+  }
+
+  addDinner(dinner : Dinner) {
+     dinner.id = this.afs.createId();
+     return this.afs.collection('/dinner').add(dinner);
+  }
+
+  addSnack(snack : Snack) {
+     snack.id = this.afs.createId();
+     return this.afs.collection('/snack').add(snack);
+  }
+
   // get all foods
   getAllFoods() {
     return this.afs.collection('/food').snapshotChanges();
   }
 
+  getAllBreakfasts() {
+    return this.afs.collection('/breakfast').snapshotChanges();
+  }
+
+  getAllLunch() {
+    return this.afs.collection('/lunch').snapshotChanges();
+  }
+
+  getAllDinner() {
+    return this.afs.collection('/dinner').snapshotChanges();
+  }
+
+  getAllSnacks() {
+    return this.afs.collection('/snack').snapshotChanges();
+  }
+
   // delete food
   deleteFood(food : Food) {
      this.afs.doc('/food/'+ food.id).delete();
+  }
+
+  deleteBreakfast(breakfast : Breakfast) {
+     this.afs.doc('/breakfast/'+ breakfast.id).delete();
+  }
+
+  deleteLunch(lunch : Lunch) {
+     this.afs.doc('/lunch/'+ lunch.id).delete();
+  }
+
+  deleteDinner(dinner : Dinner) {
+     this.afs.doc('/dinner/'+ dinner.id).delete();
+  }
+
+  deleteSnack(snack : Snack) {
+     this.afs.doc('/snack/'+ snack.id).delete();
   }
 
   // update food
