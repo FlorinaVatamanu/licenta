@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+
 
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
@@ -16,6 +18,7 @@ import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { NutritionistDashboardComponent } from './nutritionist-dashboard/nutritionist-dashboard.component';
 import { RestComponent } from './rest/rest.component';
+import { ProfileComponent } from './profile/profile.component';
 
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -34,9 +37,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatListModule } from '@angular/material/list';
 import { FoodComponent } from './food/food.component';
-import {PaginatorModule} from 'primeng/paginator';
+import { PaginatorModule } from 'primeng/paginator';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+
 import { BmrComponent } from './bmr/bmr.component';
 import { ChartModule } from 'primeng/chart';
+
+import {FileUploadModule} from 'primeng/fileupload';
+import {ToastModule} from 'primeng/toast';
+
+import {TabViewModule} from 'primeng/tabview';
 
 @NgModule({
     declarations: [
@@ -53,7 +66,8 @@ import { ChartModule } from 'primeng/chart';
         NutritionistDashboardComponent,
         RestComponent,
         FoodComponent,
-        BmrComponent
+        BmrComponent,
+        ProfileComponent
     ],
     imports: [
         BrowserModule,
@@ -73,9 +87,17 @@ import { ChartModule } from 'primeng/chart';
         ButtonModule,
         CardModule,
         PaginatorModule,
+        Ng2SearchPipeModule,
+        Ng2OrderModule,
+        NgxPaginationModule,
         ChartModule,
 
+        FileUploadModule,
+
         FormsModule,
+        ToastModule,
+        TabViewModule,
+
         ReactiveFormsModule,
     ],
     providers: [],

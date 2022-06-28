@@ -12,6 +12,7 @@ import { NutritionistDashboardComponent } from './nutritionist-dashboard/nutriti
 import { RestComponent } from './rest/rest.component';
 import { FoodComponent } from './food/food.component';
 import { BmrComponent } from './bmr/bmr.component';
+import { ProfileComponent } from './profile/profile.component';
 
 import { AuthGuard } from './services/auth.guard';
 
@@ -27,6 +28,7 @@ const routes: Routes = [
     { path: 'food', component: FoodComponent },
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
     { path: 'bmr', component: BmrComponent, canActivate: [AuthGuard] },
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'nutritionist', component: NutritionistDashboardComponent, canActivate: [AuthGuard] },
     { path: '**', component: HomeComponent },                       // catch-all in case no other path matched
 ];
